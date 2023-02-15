@@ -1,1 +1,6 @@
+spring:
+  main:
+    allow-bean-definition-overriding: true
 
+elasticsearch:
+  url: "localhost:9200"

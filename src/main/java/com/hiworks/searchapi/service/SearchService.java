@@ -5,22 +5,21 @@ import com.hiworks.searchapi.repository.SearchRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
-import java.util.List;
-
 @RequiredArgsConstructor
 @Service
 public class SearchService {
 
     private final SearchRepository searchRepository;
 
-    public void insert() {
-        HiworksDocument hiworksDocument = new HiworksDocument("1", "resource...");
-        searchRepository.save(hiworksDocument);
+    public void save(final HiworksDocument document) {
+        HiworksDocument save = searchRepository.save(document);
+
+        System.out.println(save);
 
     }
 
-    public List<HiworksDocument> findAll() {
-        List<HiworksDocument> result = (List<HiworksDocument>) searchRepository.findAll();
-        return result;
+    public HiworksDocument findById(final String id){
+        HiworksDocument hiworksDocument = searchRepository.findById(id).orElse(null);
+        return hiworksDocument;
     }
 }
