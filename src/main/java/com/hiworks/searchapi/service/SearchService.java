@@ -1,6 +1,7 @@
 package com.hiworks.searchapi.service;
 
-import com.hiworks.searchapi.model.HiworksDocument;
+import com.hiworks.searchapi.model.BaseDocument;
+import com.hiworks.searchapi.model.MailDocument;
 import com.hiworks.searchapi.repository.SearchRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -11,15 +12,12 @@ public class SearchService {
 
     private final SearchRepository searchRepository;
 
-    public void save(final HiworksDocument document) {
-        HiworksDocument save = searchRepository.save(document);
-
-        System.out.println(save);
+    public void save(final MailDocument document) {
+        BaseDocument save = searchRepository.save(document);
 
     }
 
-    public HiworksDocument findById(final String id){
-        HiworksDocument hiworksDocument = searchRepository.findById(id).orElse(null);
-        return hiworksDocument;
+    public BaseDocument findById(final String id){
+        return searchRepository.findById(id).orElse(null);
     }
 }

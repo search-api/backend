@@ -1,0 +1,15 @@
+{
+  "properties": {
+    "office_no": {
+      "type": "integer"
+    },
+    "content": {
+      "type": "text",
+      "analyzer": "kor_analyzer"
+    },
+    "created_at": {
+      "type": "date",
+      "format": "EEE MMM dd HH:mm:ss Z yyyy"
+    }
+  }
+}
